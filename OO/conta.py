@@ -41,7 +41,6 @@ class Conta:
         else:
             print("\nFalha ao sacar:Limite indisponível!")
         
-    
     def alterarLimite(self, valor):
         self.limite = valor
     
@@ -54,20 +53,30 @@ class Conta:
        
     
 # getters e setters
-    def get_titular(self):
+    @property
+    def titular(self):
         return self.__titular
 
-    def get_numero(self):
-        return self.__numero
-
-    def get_saldo(self):
-        return self.__saldo
-    
-    def get_limite(self):
-        return self.__limite
-
-    def set_titular(self, valor):
+    @titular.setter
+    def titular(self, valor):
         self.__titular = valor
 
-    def set_limite(self, valor):
+    @property
+    def numero(self):
+        return self.__numero
+
+    @property
+    def saldo(self):
+        return self.__saldo
+    
+    @property
+    def limite(self):
+        return self.__limite
+
+    @limite.setter
+    def limite(self, valor):
         self.__limite = valor
+    
+    @staticmethod
+    def codigo_banco():
+        return '001'
