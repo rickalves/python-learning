@@ -36,11 +36,13 @@ class Producao:
         return self._likes
     
     # outros métodos
-    @classmethod
-    def __dar_like(self):
+    def dar_like(self):
         self._likes += 1
+    
+    def imprime(self):
+        pass
 
-# Subclasses
+# Subclasses ++++++++++++++++++++++++++++++++++++++++++++++++
 class Filme(Producao):
     def __init__(self, titulo, genero, ano, duracao):
         super().__init__(titulo, genero, ano)
@@ -53,6 +55,11 @@ class Filme(Producao):
     @duracao.setter
     def duracao(self, duracao):
         self._duracao = duracao
+    
+    def imprime(self):
+        print('+++++++++++++++++++++++++++++++++++++++++++++')
+        print(f'Filme:{self._titulo}\nAno:{self._ano}\n'+
+              f'Duração:{self._duracao}\nGênero:{self._genero}\nLikes:{self._likes}')
       
 class Serie(Producao):
     def __init__(self, titulo, genero, ano, temporadas):
@@ -65,17 +72,19 @@ class Serie(Producao):
 
     @temporadas.setter
     def temporadas(self, temporadas):
-        self._temporadas = temporadas     
+        self._temporadas = temporadas 
+
+    def imprime(self):
+        print('+++++++++++++++++++++++++++++++++++++++++++++')
+        print(f'Série:{self._titulo}\nAno:{self._ano}\n'+
+            f'Temporadas:{self._temporadas}\nGênero:{self._genero}\nLikes:{self._likes}')
+
     
 # Testando a classes
-vingadores = Filme('Vingadores - Ultimato','Ação, Fantasia, Aventura', '2019', '180min')
-
-print('+++++++++++++++++++++++++++++++++++++++++++++')
-print(f'Filme:{vingadores.titulo}\nAno:{vingadores.ano}\n'+
-      f'Duração:{vingadores.duracao}\nGênero:{vingadores.genero}\nLikes:{vingadores.likes}')
+vingadores = Filme('Vingadores - Ultimato','Ação, Fantasia, Aventura', '2019', '180 min')
+vingadores.dar_like()
+vingadores.imprime()
 
 mandalorian = Serie('The Mandalorian','Ação, Fantasia, Aventura', '2020', '2 temporadas')
+mandalorian.imprime()
 
-print('+++++++++++++++++++++++++++++++++++++++++++++')
-print(f'Série:{mandalorian.titulo}\nAno:{mandalorian.ano}\n'+
-      f'Temporadas:{mandalorian.temporadas}\nGênero:{mandalorian.genero}\nLikes:{mandalorian.likes}')
