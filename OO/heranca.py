@@ -39,8 +39,8 @@ class Producao:
     def dar_like(self):
         self._likes += 1
     
-    def imprime(self):
-        pass
+    def __str__(self):
+        return f'Filme:{self._titulo}\nAno:{self._ano}\nGênero:{self._genero}\nLikes:{self._likes}'
 
 # Subclasses ++++++++++++++++++++++++++++++++++++++++++++++++
 class Filme(Producao):
@@ -56,10 +56,8 @@ class Filme(Producao):
     def duracao(self, duracao):
         self._duracao = duracao
     
-    def imprime(self):
-        print('+++++++++++++++++++++++++++++++++++++++++++++')
-        print(f'Filme:{self._titulo}\nAno:{self._ano}\n'+
-              f'Duração:{self._duracao}\nGênero:{self._genero}\nLikes:{self._likes}')
+    def __str__(self):
+       return f'Filme:{self._titulo}\nAno:{self._ano}\nDuração:{self._duracao}\nGênero:{self._genero}\nLikes:{self._likes}'
       
 class Serie(Producao):
     def __init__(self, titulo, genero, ano, temporadas):
@@ -74,17 +72,16 @@ class Serie(Producao):
     def temporadas(self, temporadas):
         self._temporadas = temporadas 
 
-    def imprime(self):
-        print('+++++++++++++++++++++++++++++++++++++++++++++')
-        print(f'Série:{self._titulo}\nAno:{self._ano}\n'+
-            f'Temporadas:{self._temporadas}\nGênero:{self._genero}\nLikes:{self._likes}')
+    def __str__(self):
+       return f'Série:{self._titulo}\nAno:{self._ano}\nTemporadas:{self._temporadas}\nGênero:{self._genero}\nLikes:{self._likes}'
 
     
 # Testando a classes
 vingadores = Filme('Vingadores - Ultimato','Ação, Fantasia, Aventura', '2019', '180 min')
 vingadores.dar_like()
-vingadores.imprime()
+print(vingadores)
 
+print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 mandalorian = Serie('The Mandalorian','Ação, Fantasia, Aventura', '2020', '2 temporadas')
-mandalorian.imprime()
+print(mandalorian)
 
