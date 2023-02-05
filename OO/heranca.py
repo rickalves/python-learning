@@ -40,7 +40,7 @@ class Producao:
         self._likes += 1
     
     def __str__(self):
-        return f'Filme:{self._titulo}\nAno:{self._ano}\nGênero:{self._genero}\nLikes:{self._likes}'
+        return f'\nFilme:{self._titulo}\nAno:{self._ano}\nGênero:{self._genero}\nLikes:{self._likes}'
 
 # Subclasses ++++++++++++++++++++++++++++++++++++++++++++++++
 class Filme(Producao):
@@ -57,7 +57,7 @@ class Filme(Producao):
         self._duracao = duracao
     
     def __str__(self):
-       return f'Filme:{self._titulo}\nAno:{self._ano}\nDuração:{self._duracao}\nGênero:{self._genero}\nLikes:{self._likes}'
+       return f'\nFilme:{self._titulo}\nAno:{self._ano}\nDuração:{self._duracao}\nGênero:{self._genero}\nLikes:{self._likes}'
       
 class Serie(Producao):
     def __init__(self, titulo, genero, ano, temporadas):
@@ -73,15 +73,46 @@ class Serie(Producao):
         self._temporadas = temporadas 
 
     def __str__(self):
-       return f'Série:{self._titulo}\nAno:{self._ano}\nTemporadas:{self._temporadas}\nGênero:{self._genero}\nLikes:{self._likes}'
+       return f'\nSérie:{self._titulo}\nAno:{self._ano}\nTemporadas:{self._temporadas}\nGênero:{self._genero}\nLikes:{self._likes}'
 
+#Criando a classe playlist++++++++++++++++++++++++++++
+class Playlist:
+    def __init__(self, nome, producoes):
+        self._nome = nome
+        self._producoes = producoes
     
+    def __getitem__(self, item):
+        return self._producoes[item]
+
+    def __len__(self):
+        return len(self._producoes)
+
+    @property
+    def nome(self):
+        return self._nome
+    
+    @nome.setter
+    def nome(self, nome):
+        self._nome = nome
+
+
+
 # Testando a classes
 vingadores = Filme('Vingadores - Ultimato','Ação, Fantasia, Aventura', '2019', '180 min')
+johnWick4 = Filme('John Wick 4 - Babayega','Ação, Aventura', '2023', '180 min')
 vingadores.dar_like()
-print(vingadores)
+johnWick4.dar_like()
 
-print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 mandalorian = Serie('The Mandalorian','Ação, Fantasia, Aventura', '2020', '2 temporadas')
-print(mandalorian)
+starwars_clone_wars = Serie('Star Wars - Clone Wars','Ação, Fantasia, Aventura', '2018', '5 temporadas')
+
+producoes = [vingadores, johnWick4, mandalorian, starwars_clone_wars]
+
+playlist = Playlist("Filmes e Series", producoes)
+
+for producao in playlist:
+    print(producao)
+
+print(f'O tamanho da playlist é: {len(playlist)}')
+
 
