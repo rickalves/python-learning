@@ -81,3 +81,5 @@ lara = Estudante('Lara', 7654321, 'F', 'lara@mail.com', 456456467, 'Informática
 
 print(rick)
 print(lara)
+
+print('Mesma pessoa') if rick == lara else print('Pessoas diferentes')
