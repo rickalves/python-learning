@@ -13,3 +13,4 @@ conta1.sacar(700.0)
 conta1.extrato()
 
 print("\nCódigo do banco:{}".format(Conta.codigo_banco()))
+print(dir(conta1))

@@ -5,7 +5,7 @@ class UrlExtractor:
 
     
     def validade_url(self)->bool:
-        if self.url.strip() == "":
+        if not self.url.strip():
             return False
         else:
             return True
@@ -33,6 +33,7 @@ class UrlExtractor:
 
 # Class test
 url = "https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real&quantidade=100"
+# url = ""
 extract_url = UrlExtractor(url)
 
-print(extract_url.find_param('quantidade'))
+print(extract_url.validade_url())
