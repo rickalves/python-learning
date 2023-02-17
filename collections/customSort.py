@@ -1,5 +1,5 @@
 #resolver problema da importação
-from ..OO import abstractConta
+from ..oo import abstractConta
 
 conta_rick = abstractConta.ContaCorrente(3453)
 conta_lara = abstractConta.ContaPoupanca(7890)

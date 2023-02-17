@@ -8,7 +8,7 @@ class Conta(metaclass=ABCMeta):
         return f'<<< Conta:{self._numero}, Saldo:{self._saldo} >>>'
 
     def __eq__(self, obj: object) -> bool:
-        self._numero == obj._numero
+        return self._numero == obj._numero
     
     def deposita(self, valor):
         self._saldo += valor
