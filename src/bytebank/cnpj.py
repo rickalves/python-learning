@@ -6,7 +6,7 @@ class Cnpj:
     def valida_cnpj(self, numero):
         return CNPJ().validate(numero)
     
-    def gerar_cnpj(self, format=False):
+    def gerar_cnpj(self, format=True):
         return CNPJ().generate(format)
     
     def __str__(self):

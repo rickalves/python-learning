@@ -6,7 +6,7 @@ class Cpf:
     def valida_cpf(self, numero):
         return CPF().validate(numero)
     
-    def gerar_cpf(self, format=False):
+    def gerar_cpf(self, format=True):
         return CPF().generate(format)
     
     def __str__(self):
