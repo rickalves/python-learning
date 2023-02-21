@@ -1,5 +1,8 @@
 from src.funcionario import Funcionario
 
-func = Funcionario("Rick", "20/02/1994", 5000.00)
+# teste unitário idade
+def teste_idade():
+    funcionario = Funcionario("Rick", "20/02/1994", 5000.00)
+    print(funcionario.idade())
 
-print(func.idade())
+teste_idade()

@@ -16,7 +16,8 @@ class Funcionario:
 
     def idade(self):
         ano_atual = date.today().year
-        return ano_atual - int(self._data_nascimento)
+        ano_idade = str(self._data_nascimento).split("/")
+        return ano_atual - int(ano_idade[-1])
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
