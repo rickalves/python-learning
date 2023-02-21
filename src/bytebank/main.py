@@ -1,13 +1,8 @@
-from gera_doc import GeraDoc
+from busca_endereco import BuscaEndereco
 
-cpf = GeraDoc.gerar_doc('cpf')
-cnpj = GeraDoc.gerar_doc('cnpj')
+endereco = BuscaEndereco(cep="01010904")
 
-newCPF = cpf.gerar_cpf()
-
-print(cpf)
-print(cnpj)
-print(newCPF)
+print(endereco.buscar())
 
 
 
