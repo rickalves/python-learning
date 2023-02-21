@@ -1,8 +1,4 @@
-from src.funcionario import Funcionario
+from tests.test_funcionario import TestClass
 
-# teste unitário idade
-def teste_idade():
-    funcionario = Funcionario("Rick", "20/02/1994", 5000.00)
-    print(funcionario.idade())
-
-teste_idade()
+test = TestClass()
+test.test_quando_idade_recebe_20_02_1994_deve_retornar_22()
