@@ -1,5 +1,5 @@
 
-from oo import abstractConta as conta
+import abstractConta as conta
 from operator import attrgetter
 
 
