@@ -1,0 +1,9 @@
+[run]
+source = ./src/tests/classes
+
+[report]
+exclude_lines =
+    def __str__
+    @property
+    .setter
+    def __init__

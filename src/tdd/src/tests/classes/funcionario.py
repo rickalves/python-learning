@@ -11,8 +11,27 @@ class Funcionario:
         return self._nome
 
     @property
+    def data_nascimento(self):
+        return self._data_nascimento
+
+    @property
     def salario(self):
         return self._salario
+    
+    @salario.setter
+    def salario(self, valor):
+        self._salario = valor
+
+    def decrescimo_salario(self):
+        if self._salario >= 100000:
+            decrescimo = self._salario * 0.1
+            self._salario -= decrescimo
+
+    def sobrenome(self):
+        nome = self._nome.strip()
+        nome = nome.split(' ')
+        sobrenome = nome[-1]
+        return sobrenome
 
     def idade(self):
         ano_atual = date.today().year
@@ -22,7 +41,7 @@ class Funcionario:
     def calcular_bonus(self):
         valor = self._salario * 0.1
         if valor > 1000:
-            valor = 0
+            raise Exception("Salário não se enquadra no bônus!")
         return valor
 
     def __str__(self):
